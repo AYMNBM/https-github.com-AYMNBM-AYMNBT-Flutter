@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'dart:math';
 import 'widgets/aymnbt.dart';
 import 'constants/app_colors.dart';
+import 'screens/aymn_form_screen.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,13 +15,23 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'AYMNBT Demo',
+      title: 'نموذج أيمن',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-        scaffoldBackgroundColor: AppColors.backgroundColor,
+        primarySwatch: Colors.purple,
+        scaffoldBackgroundColor: Colors.grey[100],
+        fontFamily: 'Cairo',
       ),
-      home: const HomeScreen(),
+      locale: const Locale('ar', 'SA'),
+      localizationsDelegates: const [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: const [
+        Locale('ar', 'SA'),
+      ],
+      home: const AYMNFormScreen(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
